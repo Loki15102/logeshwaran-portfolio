@@ -16,10 +16,10 @@ interface CommandHistoryItem {
   time: string;
 }
 
-export const Terminal: React.FC<TerminalProps> = ({ onNavigate }) => {
+export const Terminal: React.FC<TerminalProps> = ({ onNavigate, isOpenDefault = false }) => {
   const [input, setInput] = useState('');
   const [isMaximized, setIsMaximized] = useState(false);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(isOpenDefault);
   const { theme, toggleTheme } = useTheme();
 
   const [history, setHistory] = useState<CommandHistoryItem[]>([
@@ -271,118 +271,120 @@ export const Terminal: React.FC<TerminalProps> = ({ onNavigate }) => {
     return (
       <button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 z-40 p-3.5 rounded-full bg-cyan-500 text-slate-950 shadow-2xl shadow-cyan-500/50 hover:bg-cyan-400 transition-all duration-300 flex items-center gap-2 font-mono text-sm font-bold group"
+        aria-label="Open Interactive Developer Terminal"
+        className="fixed bottom-6 right-6 z-40 px-4 py-2.5 rounded-full bg-cyan-500 text-slate-950 shadow-2xl shadow-cyan-500/40 hover:bg-cyan-400 transition-all duration-300 flex items-center gap-2 font-mono text-xs font-bold group active:scale-95 border border-cyan-400/50"
       >
-        <TerminalIcon className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-        <span className="hidden sm:inline">Open Terminal</span>
+        <TerminalIcon className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+        <span>Terminal</span>
       </button>
     );
   }
 
   return (
-    <div
-      className={`
-        rounded-2xl border border-slate-200 dark:border-slate-800/80 
-        bg-slate-950/95 dark:bg-[#070b14]/95 
-        shadow-2xl shadow-slate-300/50 dark:shadow-cyan-500/10 
-        backdrop-blur-xl overflow-hidden font-mono text-sm 
-        transition-all duration-300
-        ${isMaximized ? 'w-full my-6' : 'w-full my-6 max-w-4xl mx-auto'}
-      `}
-    >
-      {/* Terminal Title Bar */}
-      <div className="flex items-center justify-between px-4 py-3 bg-slate-900/80 border-b border-slate-800 select-none">
-        <div className="flex items-center gap-2">
-          <div className="w-3 h-3 rounded-full bg-rose-500/80" />
-          <div className="w-3 h-3 rounded-full bg-amber-500/80" />
-          <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-          <div className="h-4 w-[1px] bg-slate-700 mx-2" />
-          <div className="flex items-center gap-2 text-xs text-slate-400">
-            <TerminalIcon className="w-3.5 h-3.5 text-cyan-400" />
-            <span className="font-semibold text-slate-300">bash — logeshwaran@anti-g:~</span>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => setIsMaximized(!isMaximized)}
-            className="p-1 rounded text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
-            title={isMaximized ? 'Restore' : 'Maximize'}
-          >
-            {isMaximized ? <Minimize2 className="w-3.5 h-3.5" /> : <Maximize2 className="w-3.5 h-3.5" />}
-          </button>
-          <button
-            onClick={() => setIsOpen(false)}
-            className="p-1 rounded text-slate-400 hover:text-rose-400 hover:bg-slate-800 transition-colors"
-            title="Minimize"
-          >
-            <X className="w-3.5 h-3.5" />
-          </button>
-        </div>
-      </div>
-
-      {/* Quick Command Chips */}
-      <div className="flex flex-wrap items-center gap-1.5 px-4 py-2.5 bg-slate-900/40 border-b border-slate-800/60 overflow-x-auto text-[11px]">
-        <span className="text-slate-500 flex items-center gap-1 mr-1">
-          <Sparkles className="w-3 h-3 text-cyan-400" /> shortcuts:
-        </span>
-        {quickCommands.map(cmd => (
-          <button
-            key={cmd}
-            onClick={() => {
-              handleCommand(cmd);
-              inputRef.current?.focus();
-            }}
-            className="px-2.5 py-0.5 rounded-full bg-slate-800/80 hover:bg-cyan-500/20 text-slate-300 hover:text-cyan-300 border border-slate-700/60 transition-colors duration-150"
-          >
-            {cmd}
-          </button>
-        ))}
-      </div>
-
-      {/* Terminal Body */}
+    <div className={`fixed z-50 transition-all duration-300 ${
+      isMaximized 
+        ? 'inset-4 sm:inset-8 flex flex-col' 
+        : 'bottom-6 right-6 w-[calc(100vw-3rem)] sm:w-[620px] max-w-full'
+    }`}>
       <div
-        className="p-4 overflow-y-auto space-y-3 font-mono text-xs max-h-[340px] sm:max-h-[420px]"
-        onClick={() => inputRef.current?.focus()}
+        className="rounded-2xl border border-slate-700/80 bg-slate-950/95 dark:bg-[#070b14]/98 shadow-2xl shadow-black/60 dark:shadow-cyan-500/10 backdrop-blur-xl overflow-hidden font-mono text-sm flex flex-col"
       >
-        {history.map(item => (
-          <div key={item.id} className="space-y-1">
-            <div className="flex items-center gap-2 text-slate-400">
-              <span className="text-cyan-400 font-bold">logeshwaran@anti-g:~$</span>
-              <span className="text-slate-100 font-semibold">{item.command}</span>
-              <span className="text-[10px] text-slate-600 ml-auto">{item.time}</span>
-            </div>
-            <div className="pl-4 text-slate-300 border-l border-cyan-500/30">
-              {item.output}
+        {/* Terminal Title Bar */}
+        <div className="flex items-center justify-between px-4 py-3 bg-slate-900/90 border-b border-slate-800 select-none">
+          <div className="flex items-center gap-2">
+            <div className="w-3 h-3 rounded-full bg-rose-500/80 cursor-pointer" onClick={() => setIsOpen(false)} title="Close" />
+            <div className="w-3 h-3 rounded-full bg-amber-500/80 cursor-pointer" onClick={() => setIsMaximized(!isMaximized)} title="Toggle Size" />
+            <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
+            <div className="h-4 w-[1px] bg-slate-700 mx-2" />
+            <div className="flex items-center gap-2 text-xs text-slate-400">
+              <TerminalIcon className="w-3.5 h-3.5 text-cyan-400" />
+              <span className="font-semibold text-slate-300">bash — logeshwaran@anti-g:~</span>
             </div>
           </div>
-        ))}
-        <div ref={bottomRef} />
-      </div>
 
-      {/* Terminal Input Bar */}
-      <div className="flex items-center gap-2 px-4 py-3 bg-slate-900/60 border-t border-slate-800">
-        <span className="text-cyan-400 font-bold select-none text-xs">logeshwaran@anti-g:~$</span>
-        <input
-          ref={inputRef}
-          type="text"
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="Type a command (try 'help')..."
-          className="flex-1 bg-transparent text-slate-100 placeholder-slate-600 outline-none text-xs font-mono"
-        />
-        <button
-          onClick={() => {
-            handleCommand(input);
-            setInput('');
-          }}
-          disabled={!input.trim()}
-          className="text-slate-400 hover:text-cyan-400 disabled:opacity-30 transition-colors"
-          title="Execute"
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setIsMaximized(!isMaximized)}
+              className="p-1 rounded text-slate-400 hover:text-white hover:bg-slate-800 transition-colors"
+              title={isMaximized ? 'Restore' : 'Maximize'}
+            >
+              {isMaximized ? <Minimize2 className="w-3.5 h-3.5" /> : <Maximize2 className="w-3.5 h-3.5" />}
+            </button>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="p-1 rounded text-slate-400 hover:text-rose-400 hover:bg-slate-800 transition-colors"
+              title="Close Terminal"
+            >
+              <X className="w-3.5 h-3.5" />
+            </button>
+          </div>
+        </div>
+
+        {/* Quick Command Chips */}
+        <div className="flex flex-wrap items-center gap-1.5 px-4 py-2 bg-slate-900/40 border-b border-slate-800/60 overflow-x-auto text-[11px]">
+          <span className="text-slate-500 flex items-center gap-1 mr-1">
+            <Sparkles className="w-3 h-3 text-cyan-400" /> shortcuts:
+          </span>
+          {quickCommands.map(cmd => (
+            <button
+              key={cmd}
+              onClick={() => {
+                handleCommand(cmd);
+                inputRef.current?.focus();
+              }}
+              className="px-2 py-0.5 rounded-md bg-slate-800/80 hover:bg-cyan-500/20 text-slate-300 hover:text-cyan-300 border border-slate-700/60 transition-colors duration-150"
+            >
+              {cmd}
+            </button>
+          ))}
+        </div>
+
+        {/* Terminal Body */}
+        <div
+          className={`p-4 overflow-y-auto space-y-3 font-mono text-xs ${
+            isMaximized ? 'flex-1 max-h-[calc(100vh-220px)]' : 'max-h-[320px]'
+          }`}
+          onClick={() => inputRef.current?.focus()}
         >
-          <CornerDownLeft className="w-4 h-4" />
-        </button>
+          {history.map(item => (
+            <div key={item.id} className="space-y-1">
+              <div className="flex items-center gap-2 text-slate-400">
+                <span className="text-cyan-400 font-bold">logeshwaran@anti-g:~$</span>
+                <span className="text-slate-100 font-semibold">{item.command}</span>
+                <span className="text-[10px] text-slate-600 ml-auto">{item.time}</span>
+              </div>
+              <div className="pl-4 text-slate-300 border-l border-cyan-500/30">
+                {item.output}
+              </div>
+            </div>
+          ))}
+          <div ref={bottomRef} />
+        </div>
+
+        {/* Terminal Input Bar */}
+        <div className="flex items-center gap-2 px-4 py-3 bg-slate-900/60 border-t border-slate-800">
+          <span className="text-cyan-400 font-bold select-none text-xs">logeshwaran@anti-g:~$</span>
+          <input
+            ref={inputRef}
+            type="text"
+            value={input}
+            onChange={e => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Type a command (try 'help')..."
+            className="flex-1 bg-transparent text-slate-100 placeholder-slate-600 outline-none text-xs font-mono"
+          />
+          <button
+            onClick={() => {
+              handleCommand(input);
+              setInput('');
+            }}
+            disabled={!input.trim()}
+            className="text-slate-400 hover:text-cyan-400 disabled:opacity-30 transition-colors"
+            title="Execute"
+          >
+            <CornerDownLeft className="w-4 h-4" />
+          </button>
+        </div>
       </div>
     </div>
   );

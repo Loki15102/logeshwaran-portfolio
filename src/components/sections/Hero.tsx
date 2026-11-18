@@ -42,11 +42,11 @@ export const Hero: React.FC<HeroProps> = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-[92vh] pt-28 pb-16 flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-[92vh] lg:min-h-screen pt-24 pb-12 flex items-center justify-center overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           {/* Left Column: Headline and Call-to-actions */}
-          <div className="lg:col-span-7 space-y-6 text-left">
+          <div className="lg:col-span-7 space-y-5 text-left">
             {/* Availability Pill */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -67,11 +67,11 @@ export const Hero: React.FC<HeroProps> = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="space-y-2"
+              className="space-y-1.5"
             >
               <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 dark:text-white">
                 Hi, I'm{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-teal-500 to-blue-600 dark:from-cyan-400 dark:via-teal-300 dark:to-blue-500">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-teal-400 to-blue-500 dark:from-cyan-400 dark:via-teal-300 dark:to-blue-500">
                   {personal.name}
                 </span>
               </h1>
@@ -93,75 +93,60 @@ export const Hero: React.FC<HeroProps> = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-base sm:text-lg text-slate-700 dark:text-slate-300 max-w-2xl leading-relaxed"
+              className="text-sm sm:text-base text-slate-700 dark:text-slate-300 max-w-2xl leading-relaxed"
             >
               {personal.summary}
             </motion.p>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons & Email */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-wrap items-center gap-3.5 pt-2"
+              className="space-y-3.5 pt-1"
             >
-              {/* Download Resume */}
-              <a
-                href={personal.resumeUrl}
-                download={personal.resumeFileName}
-                onClick={handleDownloadResume}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm shadow-xl shadow-cyan-500/25 transition-all duration-200 active:scale-95 group"
-              >
-                <Download className="w-4 h-4 transition-transform group-hover:-translate-y-0.5" />
-                <span>Download Resume</span>
-              </a>
+              <div className="flex flex-wrap items-center gap-3">
+                {/* Download Resume */}
+                <a
+                  href={personal.resumeUrl}
+                  download={personal.resumeFileName}
+                  onClick={handleDownloadResume}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm shadow-xl shadow-cyan-500/25 transition-all duration-200 active:scale-95 group"
+                >
+                  <Download className="w-4 h-4 transition-transform group-hover:-translate-y-0.5" />
+                  <span>Download Resume</span>
+                </a>
 
-              {/* View Projects */}
-              <a
-                href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-slate-100 text-slate-800 hover:text-slate-950 border border-slate-200 dark:bg-slate-900/80 dark:hover:bg-slate-800 dark:text-slate-200 dark:hover:text-white dark:border-slate-700/80 text-sm font-semibold transition-all duration-200 active:scale-95 group shadow-sm"
-              >
-                <span>View Projects</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </a>
+                {/* View Projects */}
+                <a
+                  href="#projects"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-slate-100 text-slate-800 hover:text-slate-950 border border-slate-200 dark:bg-slate-900/80 dark:hover:bg-slate-800 dark:text-slate-200 dark:hover:text-white dark:border-slate-700/80 text-sm font-semibold transition-all duration-200 active:scale-95 group shadow-sm"
+                >
+                  <span>View Projects</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </a>
 
-              {/* Contact Me */}
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-cyan-700 border border-slate-200 dark:bg-slate-900/40 dark:hover:bg-slate-800/60 dark:text-slate-300 dark:border-slate-800 text-sm font-semibold transition-all duration-200"
-              >
-                <Send className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
-                <span>Contact Me</span>
-              </a>
+                {/* Contact Me */}
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-cyan-700 border border-slate-200 dark:bg-slate-900/40 dark:hover:bg-slate-800/60 dark:text-slate-300 dark:border-slate-800 text-sm font-semibold transition-all duration-200"
+                >
+                  <Send className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
+                  <span>Contact Me</span>
+                </a>
+              </div>
 
-              {/* Quick Copy Email */}
-              <button
-                onClick={handleCopyEmail}
-                className="inline-flex items-center gap-1.5 px-3 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 hover:text-slate-950 dark:bg-slate-900/40 dark:hover:bg-slate-800/60 dark:border-slate-800 text-xs font-mono dark:text-slate-400 dark:hover:text-slate-200 transition-colors shadow-sm"
-                title="Copy email address"
-              >
-                {copiedEmail ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4 text-slate-400" />}
-                <span className="hidden sm:inline">{copiedEmail ? 'Copied!' : personal.email}</span>
-              </button>
-            </motion.div>
-
-            {/* Quick Metrics */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-slate-200 dark:border-slate-800/60"
-            >
-              {personal.stats.map((stat, idx) => (
-                <div key={idx} className="p-3 rounded-xl bg-white/80 dark:bg-slate-900/30 border border-slate-200 dark:border-slate-800/40 backdrop-blur-sm shadow-sm">
-                  <div className="text-xl sm:text-2xl font-black font-mono text-cyan-600 dark:text-cyan-400">
-                    {stat.value}
-                  </div>
-                  <div className="text-[11px] font-medium text-slate-600 dark:text-slate-300 mt-0.5">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+              {/* Quick Copy Email Pill */}
+              <div>
+                <button
+                  onClick={handleCopyEmail}
+                  className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 hover:text-slate-950 dark:bg-slate-900/60 dark:hover:bg-slate-800/80 dark:border-slate-800 text-xs font-mono dark:text-slate-400 dark:hover:text-slate-200 transition-colors shadow-sm"
+                  title="Copy email address"
+                >
+                  {copiedEmail ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5 text-slate-400" />}
+                  <span>{copiedEmail ? 'Copied to clipboard!' : personal.email}</span>
+                </button>
+              </div>
             </motion.div>
           </div>
 

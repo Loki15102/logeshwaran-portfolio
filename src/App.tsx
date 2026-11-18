@@ -60,12 +60,6 @@ export const AppContent: React.FC = () => {
       {/* Main Content Sections */}
       <main className="relative z-10">
         <Hero />
-        
-        {/* Interactive Dev Terminal */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <Terminal onNavigate={handleTerminalNavigate} />
-        </section>
-
         <About />
         <Skills />
         <Experience />
@@ -75,6 +69,9 @@ export const AppContent: React.FC = () => {
         <ResumeViewer />
         <Contact />
       </main>
+
+      {/* Interactive Developer Terminal (Floating Dock Launcher) */}
+      <Terminal onNavigate={handleTerminalNavigate} isOpenDefault={false} />
 
       {/* Footer */}
       <Footer />

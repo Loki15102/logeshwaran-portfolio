@@ -4,7 +4,6 @@ import {
   Download, 
   ArrowRight, 
   Send, 
-  Terminal as TerminalIcon, 
   Sparkles, 
   Code2, 
   ShieldCheck, 
@@ -53,14 +52,14 @@ export const Hero: React.FC<HeroProps> = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300 backdrop-blur-md shadow-md"
+              className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-700 dark:text-slate-300 backdrop-blur-md shadow-sm"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-              <span className="text-slate-400">Status:</span>
-              <span className="text-emerald-400 font-semibold">Available for Full-Stack Roles</span>
+              <span className="text-slate-500 dark:text-slate-400">Status:</span>
+              <span className="text-emerald-600 dark:text-emerald-400 font-semibold">Available for Full-Stack Roles</span>
             </motion.div>
 
             {/* Name & Animated Role Titles */}
@@ -70,22 +69,22 @@ export const Hero: React.FC<HeroProps> = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="space-y-2"
             >
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 dark:text-white">
                 Hi, I'm{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-blue-500">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-teal-500 to-blue-600 dark:from-cyan-400 dark:via-teal-300 dark:to-blue-500">
                   {personal.name}
                 </span>
               </h1>
 
               {/* Animated Rotating Role */}
               <div className="h-10 sm:h-12 flex items-center">
-                <span className="text-xl sm:text-2xl lg:text-3xl font-mono font-medium text-slate-400 mr-2 sm:mr-3">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-mono font-medium text-slate-500 dark:text-slate-400 mr-2 sm:mr-3">
                   I am a
                 </span>
-                <span className="text-xl sm:text-2xl lg:text-3xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-blue-400 to-purple-400">
+                <span className="text-xl sm:text-2xl lg:text-3xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 dark:from-cyan-300 dark:via-blue-400 dark:to-purple-400">
                   {personal.titles[currentTitleIndex]}
                 </span>
-                <span className="inline-block w-2 sm:w-2.5 h-6 sm:h-8 bg-cyan-400 ml-1.5 animate-pulse" />
+                <span className="inline-block w-2 sm:w-2.5 h-6 sm:h-8 bg-cyan-500 dark:bg-cyan-400 ml-1.5 animate-pulse" />
               </div>
             </motion.div>
 
@@ -94,7 +93,7 @@ export const Hero: React.FC<HeroProps> = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-base sm:text-lg text-slate-300 dark:text-slate-300 max-w-2xl leading-relaxed"
+              className="text-base sm:text-lg text-slate-700 dark:text-slate-300 max-w-2xl leading-relaxed"
             >
               {personal.summary}
             </motion.p>
@@ -120,7 +119,7 @@ export const Hero: React.FC<HeroProps> = () => {
               {/* View Projects */}
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700/80 text-sm font-semibold transition-all duration-200 active:scale-95 group"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white hover:bg-slate-100 text-slate-800 hover:text-slate-950 border border-slate-200 dark:bg-slate-900/80 dark:hover:bg-slate-800 dark:text-slate-200 dark:hover:text-white dark:border-slate-700/80 text-sm font-semibold transition-all duration-200 active:scale-95 group shadow-sm"
               >
                 <span>View Projects</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -129,19 +128,19 @@ export const Hero: React.FC<HeroProps> = () => {
               {/* Contact Me */}
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-900/40 hover:bg-slate-800/60 text-slate-300 hover:text-cyan-300 border border-slate-800 text-sm font-semibold transition-all duration-200"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-cyan-700 border border-slate-200 dark:bg-slate-900/40 dark:hover:bg-slate-800/60 dark:text-slate-300 dark:border-slate-800 text-sm font-semibold transition-all duration-200"
               >
-                <Send className="w-4 h-4 text-cyan-400" />
+                <Send className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
                 <span>Contact Me</span>
               </a>
 
               {/* Quick Copy Email */}
               <button
                 onClick={handleCopyEmail}
-                className="inline-flex items-center gap-1.5 px-3 py-3 rounded-xl bg-slate-900/40 hover:bg-slate-800/60 border border-slate-800 text-xs font-mono text-slate-400 hover:text-slate-200 transition-colors"
+                className="inline-flex items-center gap-1.5 px-3 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-700 hover:text-slate-950 dark:bg-slate-900/40 dark:hover:bg-slate-800/60 dark:border-slate-800 text-xs font-mono dark:text-slate-400 dark:hover:text-slate-200 transition-colors shadow-sm"
                 title="Copy email address"
               >
-                {copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4 text-slate-400" />}
+                {copiedEmail ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4 text-slate-400" />}
                 <span className="hidden sm:inline">{copiedEmail ? 'Copied!' : personal.email}</span>
               </button>
             </motion.div>
@@ -151,14 +150,14 @@ export const Hero: React.FC<HeroProps> = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-slate-800/60"
+              className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-slate-200 dark:border-slate-800/60"
             >
               {personal.stats.map((stat, idx) => (
-                <div key={idx} className="p-3 rounded-xl bg-slate-900/30 border border-slate-800/40 backdrop-blur-sm">
-                  <div className="text-xl sm:text-2xl font-black font-mono text-cyan-400">
+                <div key={idx} className="p-3 rounded-xl bg-white/80 dark:bg-slate-900/30 border border-slate-200 dark:border-slate-800/40 backdrop-blur-sm shadow-sm">
+                  <div className="text-xl sm:text-2xl font-black font-mono text-cyan-600 dark:text-cyan-400">
                     {stat.value}
                   </div>
-                  <div className="text-[11px] font-medium text-slate-300 mt-0.5">
+                  <div className="text-[11px] font-medium text-slate-600 dark:text-slate-300 mt-0.5">
                     {stat.label}
                   </div>
                 </div>
@@ -172,10 +171,10 @@ export const Hero: React.FC<HeroProps> = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative rounded-2xl bg-slate-900/70 border border-slate-800 backdrop-blur-xl shadow-2xl p-6 overflow-hidden"
+              className="relative rounded-2xl bg-[#090f1d] border border-slate-800 backdrop-blur-xl shadow-2xl p-6 overflow-hidden text-slate-100"
             >
               {/* Top Accent bar */}
-              <div className="flex items-center justify-between pb-4 border-b border-slate-800/80">
+              <div className="flex items-center justify-between pb-4 border-b border-slate-800">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-rose-500/80" />
                   <div className="w-3 h-3 rounded-full bg-amber-500/80" />
@@ -239,7 +238,7 @@ export const Hero: React.FC<HeroProps> = () => {
               </div>
 
               {/* Bottom Feature Badges */}
-              <div className="pt-4 border-t border-slate-800/80 grid grid-cols-2 gap-2 text-xs">
+              <div className="pt-4 border-t border-slate-800 grid grid-cols-2 gap-2 text-xs">
                 <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-800/40 border border-slate-700/50">
                   <Code2 className="w-4 h-4 text-cyan-400" />
                   <span className="text-slate-300 text-[11px]">Clean Architecture</span>

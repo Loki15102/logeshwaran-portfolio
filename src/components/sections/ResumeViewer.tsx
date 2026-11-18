@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { SectionHeading } from '../ui/SectionHeading';
-import { BentoCard } from '../ui/BentoCard';
 import { portfolioData } from '../../data/portfolio';
 import { triggerConfetti } from '../../utils/confetti';
 import { 
@@ -8,14 +7,7 @@ import {
   Maximize2, 
   Minimize2, 
   Printer, 
-  FileText, 
-  ExternalLink, 
-  Mail, 
-  Phone, 
-  Linkedin, 
-  MapPin, 
-  CheckCircle2,
-  Sparkles
+  FileText
 } from 'lucide-react';
 
 export const ResumeViewer: React.FC = () => {
@@ -42,29 +34,29 @@ export const ResumeViewer: React.FC = () => {
         {/* Action Bar */}
         <div className="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-4 mb-6">
           <div className="flex items-center gap-2">
-            <span className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400">
+            <span className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-600 dark:text-cyan-400">
               <FileText className="w-5 h-5" />
             </span>
             <div>
-              <p className="text-sm font-bold text-slate-100">{personal.resumeFileName}</p>
-              <p className="text-xs text-slate-400 font-mono">Original Document • Updated 2026</p>
+              <p className="text-sm font-bold text-slate-900 dark:text-slate-100">{personal.resumeFileName}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">Original Document • Updated 2026</p>
             </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-2.5">
             <button
               onClick={() => setIsFullscreen(!isFullscreen)}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 border border-slate-700/80 text-xs font-semibold text-slate-200 hover:text-white hover:bg-slate-800 transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors shadow-sm"
             >
-              {isFullscreen ? <Minimize2 className="w-4 h-4 text-cyan-400" /> : <Maximize2 className="w-4 h-4 text-cyan-400" />}
+              {isFullscreen ? <Minimize2 className="w-4 h-4 text-cyan-600 dark:text-cyan-400" /> : <Maximize2 className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />}
               <span>{isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}</span>
             </button>
 
             <button
               onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-900 border border-slate-700/80 text-xs font-semibold text-slate-200 hover:text-white hover:bg-slate-800 transition-colors"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 text-xs font-semibold text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors shadow-sm"
             >
-              <Printer className="w-4 h-4 text-purple-400" />
+              <Printer className="w-4 h-4 text-purple-600 dark:text-purple-400" />
               <span>Print / Save PDF</span>
             </button>
 
@@ -98,25 +90,25 @@ export const ResumeViewer: React.FC = () => {
             </div>
           )}
 
-          <div className="rounded-2xl border border-slate-700/80 bg-slate-900/90 dark:bg-[#0a0f1d] shadow-2xl p-6 sm:p-10 md:p-12 text-slate-200 space-y-8 font-sans">
+          <div className="rounded-2xl border border-slate-200 dark:border-slate-700/80 bg-white dark:bg-[#0a0f1d] shadow-2xl p-6 sm:p-10 md:p-12 text-slate-800 dark:text-slate-200 space-y-8 font-sans">
             {/* Header: Name and Contact info */}
-            <div className="border-b border-slate-700 pb-6 text-center space-y-2">
-              <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+            <div className="border-b border-slate-200 dark:border-slate-700 pb-6 text-center space-y-2">
+              <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
                 {personal.name.toUpperCase()}
               </h1>
-              <p className="text-sm sm:text-base font-semibold text-cyan-400 font-mono">
+              <p className="text-sm sm:text-base font-semibold text-cyan-700 dark:text-cyan-400 font-mono">
                 {personal.designation}
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs text-slate-300 pt-1 font-mono">
-                <a href={`mailto:${personal.email}`} className="hover:text-cyan-400 transition-colors">
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-xs text-slate-600 dark:text-slate-300 pt-1 font-mono">
+                <a href={`mailto:${personal.email}`} className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                   {personal.email}
                 </a>
                 <span>|</span>
-                <a href={`tel:${personal.phone}`} className="hover:text-cyan-400 transition-colors">
+                <a href={`tel:${personal.phone}`} className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                   {personal.phone}
                 </a>
                 <span>|</span>
-                <a href={personal.linkedin} target="_blank" rel="noreferrer" className="hover:text-cyan-400 transition-colors">
+                <a href={personal.linkedin} target="_blank" rel="noreferrer" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">
                   {personal.linkedin.replace('https://', '')}
                 </a>
                 <span>|</span>
@@ -126,36 +118,36 @@ export const ResumeViewer: React.FC = () => {
 
             {/* Summary */}
             <div className="space-y-2">
-              <h3 className="text-xs font-mono uppercase tracking-widest text-cyan-400 font-bold border-b border-slate-800 pb-1">
+              <h3 className="text-xs font-mono uppercase tracking-widest text-cyan-700 dark:text-cyan-400 font-bold border-b border-slate-200 dark:border-slate-800 pb-1">
                 Professional Summary
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify">
+              <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed text-justify">
                 {personal.summary}
               </p>
             </div>
 
             {/* Professional Experience */}
             <div className="space-y-4">
-              <h3 className="text-xs font-mono uppercase tracking-widest text-cyan-400 font-bold border-b border-slate-800 pb-1">
+              <h3 className="text-xs font-mono uppercase tracking-widest text-cyan-700 dark:text-cyan-400 font-bold border-b border-slate-200 dark:border-slate-800 pb-1">
                 Professional Experience
               </h3>
               {experiences.map((exp) => (
                 <div key={exp.id} className="space-y-2">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                     <div>
-                      <h4 className="font-bold text-sm sm:text-base text-white">
+                      <h4 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white">
                         {exp.company}
                       </h4>
-                      <p className="text-xs font-semibold text-cyan-300 font-mono">
+                      <p className="text-xs font-semibold text-cyan-700 dark:text-cyan-300 font-mono">
                         {exp.role}
                       </p>
                     </div>
-                    <div className="text-xs font-mono text-slate-400">
+                    <div className="text-xs font-mono text-slate-500 dark:text-slate-400">
                       <span>{exp.period}</span> • <span>{exp.location}</span>
                     </div>
                   </div>
 
-                  <ul className="space-y-1.5 text-xs sm:text-sm text-slate-300 list-disc list-inside">
+                  <ul className="space-y-1.5 text-xs sm:text-sm text-slate-700 dark:text-slate-300 list-disc list-inside">
                     {exp.responsibilities.map((resp, rIdx) => (
                       <li key={rIdx} className="leading-relaxed">
                         <span className="-ml-1">{resp}</span>
@@ -168,25 +160,25 @@ export const ResumeViewer: React.FC = () => {
 
             {/* Technical Skills */}
             <div className="space-y-3">
-              <h3 className="text-xs font-mono uppercase tracking-widest text-cyan-400 font-bold border-b border-slate-800 pb-1">
+              <h3 className="text-xs font-mono uppercase tracking-widest text-cyan-700 dark:text-cyan-400 font-bold border-b border-slate-200 dark:border-slate-800 pb-1">
                 Technical Skills
               </h3>
               <div className="space-y-2 text-xs sm:text-sm">
                 {skillCategories.map((cat) => (
                   <div key={cat.title} className="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-2">
-                    <span className="sm:col-span-3 font-semibold text-slate-200">
+                    <span className="sm:col-span-3 font-semibold text-slate-800 dark:text-slate-200">
                       {cat.title}:
                     </span>
-                    <span className="sm:col-span-9 text-slate-300 font-mono text-xs">
+                    <span className="sm:col-span-9 text-slate-600 dark:text-slate-300 font-mono text-xs">
                       {cat.skills.map((s) => s.name).join(', ')}
                     </span>
                   </div>
                 ))}
                 <div className="grid grid-cols-1 sm:grid-cols-12 gap-1 sm:gap-2">
-                  <span className="sm:col-span-3 font-semibold text-slate-200">
+                  <span className="sm:col-span-3 font-semibold text-slate-800 dark:text-slate-200">
                     Languages:
                   </span>
-                  <span className="sm:col-span-9 text-slate-300 font-mono text-xs">
+                  <span className="sm:col-span-9 text-slate-600 dark:text-slate-300 font-mono text-xs">
                     {portfolioData.languages.join(', ')}
                   </span>
                 </div>
@@ -195,24 +187,24 @@ export const ResumeViewer: React.FC = () => {
 
             {/* Projects */}
             <div className="space-y-4">
-              <h3 className="text-xs font-mono uppercase tracking-widest text-cyan-400 font-bold border-b border-slate-800 pb-1">
+              <h3 className="text-xs font-mono uppercase tracking-widest text-cyan-700 dark:text-cyan-400 font-bold border-b border-slate-200 dark:border-slate-800 pb-1">
                 Featured Projects
               </h3>
               <div className="space-y-3.5">
                 {projects.map((proj) => (
                   <div key={proj.id} className="space-y-1">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between text-xs sm:text-sm">
-                      <span className="font-bold text-white">
+                      <span className="font-bold text-slate-900 dark:text-white">
                         {proj.title}
                       </span>
-                      <span className="font-mono text-xs text-slate-400">
+                      <span className="font-mono text-xs text-slate-500 dark:text-slate-400">
                         {proj.period}
                       </span>
                     </div>
-                    <p className="text-xs text-slate-300">
+                    <p className="text-xs text-slate-600 dark:text-slate-300">
                       {proj.description}
                     </p>
-                    <p className="text-[11px] font-mono text-cyan-400/90">
+                    <p className="text-[11px] font-mono text-cyan-700 dark:text-cyan-400/90 font-medium">
                       Technologies: {proj.technologies.join(', ')}
                     </p>
                   </div>
@@ -222,18 +214,18 @@ export const ResumeViewer: React.FC = () => {
 
             {/* Education */}
             <div className="space-y-2">
-              <h3 className="text-xs font-mono uppercase tracking-widest text-cyan-400 font-bold border-b border-slate-800 pb-1">
+              <h3 className="text-xs font-mono uppercase tracking-widest text-cyan-700 dark:text-cyan-400 font-bold border-b border-slate-200 dark:border-slate-800 pb-1">
                 Education
               </h3>
               {education.map((edu, idx) => (
                 <div key={idx} className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-xs sm:text-sm">
                   <div>
-                    <span className="font-bold text-white">{edu.degree} – {edu.field}</span>
-                    <p className="text-xs text-slate-300">{edu.institution}</p>
+                    <span className="font-bold text-slate-900 dark:text-white">{edu.degree} – {edu.field}</span>
+                    <p className="text-xs text-slate-600 dark:text-slate-300">{edu.institution}</p>
                   </div>
-                  <div className="text-right font-mono text-xs text-slate-400">
+                  <div className="text-right font-mono text-xs text-slate-500 dark:text-slate-400">
                     <p>{edu.period}</p>
-                    <p className="text-emerald-400 font-bold">{edu.grade}</p>
+                    <p className="text-emerald-600 dark:text-emerald-400 font-bold">{edu.grade}</p>
                   </div>
                 </div>
               ))}
@@ -241,13 +233,13 @@ export const ResumeViewer: React.FC = () => {
 
             {/* Achievements */}
             <div className="space-y-2">
-              <h3 className="text-xs font-mono uppercase tracking-widest text-cyan-400 font-bold border-b border-slate-800 pb-1">
+              <h3 className="text-xs font-mono uppercase tracking-widest text-cyan-700 dark:text-cyan-400 font-bold border-b border-slate-200 dark:border-slate-800 pb-1">
                 Key Achievements
               </h3>
-              <ul className="space-y-1 text-xs sm:text-sm text-slate-300 list-disc list-inside">
+              <ul className="space-y-1 text-xs sm:text-sm text-slate-700 dark:text-slate-300 list-disc list-inside">
                 {achievements.map((ach) => (
                   <li key={ach.id} className="leading-relaxed">
-                    <span className="font-semibold text-slate-100">{ach.metric}:</span>{' '}
+                    <span className="font-semibold text-slate-900 dark:text-slate-100">{ach.metric}:</span>{' '}
                     <span>{ach.description}</span>
                   </li>
                 ))}

@@ -33,10 +33,11 @@ export const BentoCard: React.FC<BentoCardProps> = ({
       onClick={onClick}
       className={`
         relative rounded-2xl p-6 sm:p-8 
-        bg-slate-900/40 dark:bg-[#0b1220]/60 
+        bg-white/85 dark:bg-[#0b1220]/60 
         backdrop-blur-xl
-        border border-slate-800/80 dark:border-slate-800/60
-        shadow-xl shadow-black/20
+        border border-slate-200/90 dark:border-slate-800/60
+        shadow-xl shadow-slate-200/60 dark:shadow-black/20
+        text-slate-900 dark:text-slate-100
         transition-all duration-300 ease-out
         group
         ${glowBorderClasses}

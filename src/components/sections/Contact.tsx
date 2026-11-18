@@ -59,7 +59,6 @@ export const Contact: React.FC = () => {
 
     setIsSubmitting(true);
 
-    // Simulate reliable dispatch
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -89,14 +88,14 @@ export const Contact: React.FC = () => {
           <div className="lg:col-span-5 space-y-4">
             <BentoCard glowColor="cyan" className="space-y-6">
               <div>
-                <span className="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold flex items-center gap-1.5">
+                <span className="text-xs font-mono uppercase tracking-wider text-cyan-600 dark:text-cyan-400 font-bold flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Direct Communication</span>
                 </span>
-                <h3 className="text-2xl font-bold text-slate-100 mt-2">
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-2">
                   Reach Out Directly
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
                   I typically respond to recruiter inquiries and technical discussions within 24 hours.
                 </p>
               </div>
@@ -104,16 +103,16 @@ export const Contact: React.FC = () => {
               {/* Contact Info Items with 1-click Copy */}
               <div className="space-y-3">
                 {/* Email */}
-                <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/40 transition-colors group">
+                <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 transition-colors group">
                   <div className="flex items-center gap-3 overflow-hidden">
-                    <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-400">
+                    <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-600 dark:text-cyan-400">
                       <Mail className="w-4 h-4" />
                     </div>
                     <div className="overflow-hidden">
-                      <p className="text-[11px] font-mono text-slate-400">Email Address</p>
+                      <p className="text-[11px] font-mono text-slate-500 dark:text-slate-400">Email Address</p>
                       <a
                         href={`mailto:${personal.email}`}
-                        className="text-xs sm:text-sm font-semibold text-slate-200 hover:text-cyan-400 transition-colors truncate block"
+                        className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors truncate block"
                       >
                         {personal.email}
                       </a>
@@ -121,24 +120,24 @@ export const Contact: React.FC = () => {
                   </div>
                   <button
                     onClick={() => handleCopy(personal.email, 'email')}
-                    className="p-1.5 text-slate-400 hover:text-cyan-400 transition-colors"
+                    className="p-1.5 text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                     title="Copy email"
                   >
-                    {copiedField === 'email' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                    {copiedField === 'email' ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
                   </button>
                 </div>
 
                 {/* Phone */}
-                <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-emerald-500/40 transition-colors group">
+                <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 transition-colors group">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
+                    <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
                       <Phone className="w-4 h-4" />
                     </div>
                     <div>
-                      <p className="text-[11px] font-mono text-slate-400">Phone & WhatsApp</p>
+                      <p className="text-[11px] font-mono text-slate-500 dark:text-slate-400">Phone & WhatsApp</p>
                       <a
                         href={`tel:${personal.phone}`}
-                        className="text-xs sm:text-sm font-semibold text-slate-200 hover:text-emerald-400 transition-colors"
+                        className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
                       >
                         {personal.phone}
                       </a>
@@ -146,26 +145,26 @@ export const Contact: React.FC = () => {
                   </div>
                   <button
                     onClick={() => handleCopy(personal.phone, 'phone')}
-                    className="p-1.5 text-slate-400 hover:text-emerald-400 transition-colors"
+                    className="p-1.5 text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
                     title="Copy phone"
                   >
-                    {copiedField === 'phone' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                    {copiedField === 'phone' ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
                   </button>
                 </div>
 
                 {/* LinkedIn */}
-                <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 hover:border-blue-500/40 transition-colors group">
+                <div className="flex items-center justify-between p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 transition-colors group">
                   <div className="flex items-center gap-3 overflow-hidden">
-                    <div className="p-2 rounded-lg bg-blue-500/10 text-blue-400">
+                    <div className="p-2 rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400">
                       <Linkedin className="w-4 h-4" />
                     </div>
                     <div className="overflow-hidden">
-                      <p className="text-[11px] font-mono text-slate-400">LinkedIn Profile</p>
+                      <p className="text-[11px] font-mono text-slate-500 dark:text-slate-400">LinkedIn Profile</p>
                       <a
                         href={personal.linkedin}
                         target="_blank"
                         rel="noreferrer"
-                        className="text-xs sm:text-sm font-semibold text-slate-200 hover:text-blue-400 transition-colors truncate block"
+                        className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors truncate block"
                       >
                         linkedin.com/in/logeshwaran-n-o15102
                       </a>
@@ -173,22 +172,22 @@ export const Contact: React.FC = () => {
                   </div>
                   <button
                     onClick={() => handleCopy(personal.linkedin, 'linkedin')}
-                    className="p-1.5 text-slate-400 hover:text-blue-400 transition-colors"
+                    className="p-1.5 text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     title="Copy LinkedIn link"
                   >
-                    {copiedField === 'linkedin' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                    {copiedField === 'linkedin' ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
                   </button>
                 </div>
 
                 {/* Location */}
-                <div className="flex items-center p-3.5 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-300">
+                <div className="flex items-center p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300">
                   <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-lg bg-purple-500/10 text-purple-400">
+                    <div className="p-2 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400">
                       <MapPin className="w-4 h-4" />
                     </div>
                     <div>
-                      <p className="text-[11px] font-mono text-slate-400">Primary Location</p>
-                      <p className="text-xs sm:text-sm font-semibold text-slate-200">
+                      <p className="text-[11px] font-mono text-slate-500 dark:text-slate-400">Primary Location</p>
+                      <p className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
                         {personal.location} (Open to Remote / Hybrid Roles)
                       </p>
                     </div>
@@ -197,8 +196,8 @@ export const Contact: React.FC = () => {
               </div>
 
               {/* Privacy Notice */}
-              <div className="pt-2 flex items-center gap-2 text-[11px] font-mono text-slate-400">
-                <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+              <div className="pt-2 flex items-center gap-2 text-[11px] font-mono text-slate-500 dark:text-slate-400">
+                <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
                 <span>Strict privacy standard: Zero public display of sensitive personal IDs.</span>
               </div>
             </BentoCard>
@@ -208,28 +207,28 @@ export const Contact: React.FC = () => {
           <div className="lg:col-span-7">
             <BentoCard glowColor="purple" className="space-y-6">
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-slate-100">
+                <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100">
                   Send a Direct Message
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
                   Fill in your details below and I will get back to you promptly.
                 </p>
               </div>
 
               {isSubmitted ? (
                 <div className="p-8 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-3 animate-in fade-in zoom-in-95 duration-300">
-                  <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
+                  <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto">
                     <Check className="w-6 h-6" />
                   </div>
-                  <h4 className="text-lg font-bold text-emerald-300">
+                  <h4 className="text-lg font-bold text-emerald-700 dark:text-emerald-300">
                     Message Dispatched Successfully!
                   </h4>
-                  <p className="text-xs text-slate-300 max-w-sm mx-auto">
+                  <p className="text-xs text-slate-600 dark:text-slate-300 max-w-sm mx-auto">
                     Thank you for reaching out! I have received your notification and will reply shortly.
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="mt-4 px-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-xs font-mono text-slate-200 hover:text-white transition-colors"
+                    className="mt-4 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-mono text-slate-800 dark:text-slate-200 hover:text-black dark:hover:text-white transition-colors"
                   >
                     Send Another Message
                   </button>
@@ -239,20 +238,20 @@ export const Contact: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Name */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-mono text-slate-300">
-                        Your Full Name <span className="text-cyan-400">*</span>
+                      <label className="text-xs font-mono text-slate-700 dark:text-slate-300">
+                        Your Full Name <span className="text-cyan-600 dark:text-cyan-400">*</span>
                       </label>
                       <input
                         type="text"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Alex Mercer"
-                        className={`w-full px-4 py-2.5 rounded-xl bg-slate-950/60 border ${
-                          errors.name ? 'border-rose-500/80' : 'border-slate-800'
-                        } text-slate-100 text-xs sm:text-sm placeholder-slate-600 outline-none focus:border-cyan-500/60 transition-colors`}
+                        className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border ${
+                          errors.name ? 'border-rose-500' : 'border-slate-200 dark:border-slate-800'
+                        } text-slate-900 dark:text-slate-100 text-xs sm:text-sm placeholder-slate-400 dark:placeholder-slate-600 outline-none focus:border-cyan-500 transition-colors shadow-sm`}
                       />
                       {errors.name && (
-                        <p className="text-[11px] text-rose-400 flex items-center gap-1 font-mono">
+                        <p className="text-[11px] text-rose-500 flex items-center gap-1 font-mono">
                           <AlertCircle className="w-3 h-3" />
                           <span>{errors.name}</span>
                         </p>
@@ -261,20 +260,20 @@ export const Contact: React.FC = () => {
 
                     {/* Email */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-mono text-slate-300">
-                        Email Address <span className="text-cyan-400">*</span>
+                      <label className="text-xs font-mono text-slate-700 dark:text-slate-300">
+                        Email Address <span className="text-cyan-600 dark:text-cyan-400">*</span>
                       </label>
                       <input
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="e.g. alex@company.com"
-                        className={`w-full px-4 py-2.5 rounded-xl bg-slate-950/60 border ${
-                          errors.email ? 'border-rose-500/80' : 'border-slate-800'
-                        } text-slate-100 text-xs sm:text-sm placeholder-slate-600 outline-none focus:border-cyan-500/60 transition-colors`}
+                        className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border ${
+                          errors.email ? 'border-rose-500' : 'border-slate-200 dark:border-slate-800'
+                        } text-slate-900 dark:text-slate-100 text-xs sm:text-sm placeholder-slate-400 dark:placeholder-slate-600 outline-none focus:border-cyan-500 transition-colors shadow-sm`}
                       />
                       {errors.email && (
-                        <p className="text-[11px] text-rose-400 flex items-center gap-1 font-mono">
+                        <p className="text-[11px] text-rose-500 flex items-center gap-1 font-mono">
                           <AlertCircle className="w-3 h-3" />
                           <span>{errors.email}</span>
                         </p>
@@ -284,20 +283,20 @@ export const Contact: React.FC = () => {
 
                   {/* Subject */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-mono text-slate-300">
-                      Subject <span className="text-cyan-400">*</span>
+                    <label className="text-xs font-mono text-slate-700 dark:text-slate-300">
+                      Subject <span className="text-cyan-600 dark:text-cyan-400">*</span>
                     </label>
                     <input
                       type="text"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                       placeholder="e.g. Full-Stack Engineer Opportunity / Interview Request"
-                      className={`w-full px-4 py-2.5 rounded-xl bg-slate-950/60 border ${
-                        errors.subject ? 'border-rose-500/80' : 'border-slate-800'
-                      } text-slate-100 text-xs sm:text-sm placeholder-slate-600 outline-none focus:border-cyan-500/60 transition-colors`}
+                      className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border ${
+                        errors.subject ? 'border-rose-500' : 'border-slate-200 dark:border-slate-800'
+                      } text-slate-900 dark:text-slate-100 text-xs sm:text-sm placeholder-slate-400 dark:placeholder-slate-600 outline-none focus:border-cyan-500 transition-colors shadow-sm`}
                     />
                     {errors.subject && (
-                      <p className="text-[11px] text-rose-400 flex items-center gap-1 font-mono">
+                      <p className="text-[11px] text-rose-500 flex items-center gap-1 font-mono">
                         <AlertCircle className="w-3 h-3" />
                         <span>{errors.subject}</span>
                       </p>
@@ -306,20 +305,20 @@ export const Contact: React.FC = () => {
 
                   {/* Message */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-mono text-slate-300">
-                      Message <span className="text-cyan-400">*</span>
+                    <label className="text-xs font-mono text-slate-700 dark:text-slate-300">
+                      Message <span className="text-cyan-600 dark:text-cyan-400">*</span>
                     </label>
                     <textarea
                       rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Share project details, team requirements, or any questions..."
-                      className={`w-full px-4 py-2.5 rounded-xl bg-slate-950/60 border ${
-                        errors.message ? 'border-rose-500/80' : 'border-slate-800'
-                      } text-slate-100 text-xs sm:text-sm placeholder-slate-600 outline-none focus:border-cyan-500/60 transition-colors resize-none`}
+                      className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border ${
+                        errors.message ? 'border-rose-500' : 'border-slate-200 dark:border-slate-800'
+                      } text-slate-900 dark:text-slate-100 text-xs sm:text-sm placeholder-slate-400 dark:placeholder-slate-600 outline-none focus:border-cyan-500 transition-colors resize-none shadow-sm`}
                     />
                     {errors.message && (
-                      <p className="text-[11px] text-rose-400 flex items-center gap-1 font-mono">
+                      <p className="text-[11px] text-rose-500 flex items-center gap-1 font-mono">
                         <AlertCircle className="w-3 h-3" />
                         <span>{errors.message}</span>
                       </p>

@@ -8,9 +8,9 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative border-t border-slate-800/80 bg-slate-950/90 dark:bg-[#040810]/95 pt-16 pb-12 overflow-hidden">
+    <footer className="relative border-t border-slate-200 dark:border-slate-800/80 bg-slate-100/90 dark:bg-[#040810]/95 pt-16 pb-12 overflow-hidden text-slate-800 dark:text-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-800/80">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-slate-200 dark:border-slate-800/80">
           {/* Col 1: Bio */}
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-2.5">
@@ -22,79 +22,79 @@ export const Footer: React.FC = () => {
                 </div>
               </div>
               <div>
-                <h3 className="font-bold text-lg text-slate-100">{portfolioData.personal.name}</h3>
-                <p className="text-xs text-cyan-400 font-mono">{portfolioData.personal.designation}</p>
+                <h3 className="font-bold text-lg text-slate-900 dark:text-slate-100">{portfolioData.personal.name}</h3>
+                <p className="text-xs text-cyan-600 dark:text-cyan-400 font-mono">{portfolioData.personal.designation}</p>
               </div>
             </div>
 
-            <p className="text-sm text-slate-400 max-w-md leading-relaxed">
+            <p className="text-sm text-slate-600 dark:text-slate-400 max-w-md leading-relaxed">
               Full-Stack Developer building high-resilience web applications, optimized GraphQL/REST APIs, and enterprise cloud storage and SD-WAN solutions.
             </p>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-medium">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-ping" />
               <span>Available for Full-Stack Opportunities</span>
             </div>
           </div>
 
           {/* Col 2: Navigation Links */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-200 mb-4 font-mono">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-900 dark:text-slate-200 mb-4 font-mono">
               Navigation
             </h4>
-            <ul className="space-y-2 text-sm text-slate-400">
+            <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
               <li>
-                <a href="#about" className="hover:text-cyan-400 transition-colors">About Me</a>
+                <a href="#about" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">About Me</a>
               </li>
               <li>
-                <a href="#skills" className="hover:text-cyan-400 transition-colors">Technical Skills</a>
+                <a href="#skills" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Technical Skills</a>
               </li>
               <li>
-                <a href="#experience" className="hover:text-cyan-400 transition-colors">Work Experience</a>
+                <a href="#experience" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Work Experience</a>
               </li>
               <li>
-                <a href="#projects" className="hover:text-cyan-400 transition-colors">Featured Projects</a>
+                <a href="#projects" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Featured Projects</a>
               </li>
               <li>
-                <a href="#education" className="hover:text-cyan-400 transition-colors">Education & Academics</a>
+                <a href="#education" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Education & Academics</a>
               </li>
               <li>
-                <a href="#resume" className="hover:text-cyan-400 transition-colors">Resume & Credentials</a>
+                <a href="#resume" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Resume & Credentials</a>
               </li>
             </ul>
           </div>
 
           {/* Col 3: Direct Connect */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-200 mb-4 font-mono">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-900 dark:text-slate-200 mb-4 font-mono">
               Direct Connect
             </h4>
-            <ul className="space-y-2.5 text-sm text-slate-400">
+            <ul className="space-y-2.5 text-sm text-slate-600 dark:text-slate-400">
               <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-cyan-400 shrink-0" />
-                <a href={`mailto:${portfolioData.personal.email}`} className="hover:text-cyan-400 transition-colors truncate">
+                <Mail className="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0" />
+                <a href={`mailto:${portfolioData.personal.email}`} className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors truncate">
                   {portfolioData.personal.email}
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-emerald-400 shrink-0" />
-                <a href={`tel:${portfolioData.personal.phone}`} className="hover:text-emerald-400 transition-colors">
+                <Phone className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                <a href={`tel:${portfolioData.personal.phone}`} className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                   {portfolioData.personal.phone}
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <Linkedin className="w-4 h-4 text-blue-400 shrink-0" />
+                <Linkedin className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" />
                 <a
                   href={portfolioData.personal.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-blue-400 transition-colors"
+                  className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   LinkedIn Profile
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-slate-400">
-                <MapPin className="w-4 h-4 text-purple-400 shrink-0" />
+              <li className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+                <MapPin className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0" />
                 <span>{portfolioData.personal.location}</span>
               </li>
             </ul>
@@ -102,23 +102,23 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
           <p className="flex items-center gap-1.5">
-            Designed & Engineered by <span className="text-slate-200 font-semibold">{portfolioData.personal.name}</span> with
+            Designed & Engineered by <span className="text-slate-900 dark:text-slate-200 font-semibold">{portfolioData.personal.name}</span> with
             <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 inline" />
             using React & TypeScript
           </p>
 
           <div className="flex items-center gap-4">
-            <span className="flex items-center gap-1.5 text-slate-400">
-              <TerminalIcon className="w-3.5 h-3.5 text-cyan-400" />
+            <span className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
+              <TerminalIcon className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
               <span>Production Build v2.4</span>
             </span>
 
             <button
               onClick={scrollToTop}
               aria-label="Back to top"
-              className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 transition-colors"
+              className="p-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 transition-colors shadow-sm"
             >
               <ArrowUp className="w-4 h-4" />
             </button>

@@ -282,9 +282,9 @@ export const Terminal: React.FC<TerminalProps> = ({ onNavigate }) => {
   return (
     <div
       className={`
-        rounded-2xl border border-slate-800 dark:border-slate-800/80 
-        bg-slate-950/90 dark:bg-[#070b14]/95 
-        shadow-2xl shadow-cyan-500/10 
+        rounded-2xl border border-slate-200 dark:border-slate-800/80 
+        bg-slate-950/95 dark:bg-[#070b14]/95 
+        shadow-2xl shadow-slate-300/50 dark:shadow-cyan-500/10 
         backdrop-blur-xl overflow-hidden font-mono text-sm 
         transition-all duration-300
         ${isMaximized ? 'w-full my-6' : 'w-full my-6 max-w-4xl mx-auto'}

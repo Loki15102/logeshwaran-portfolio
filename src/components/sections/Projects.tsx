@@ -7,13 +7,7 @@ import { ProjectItem } from '../../types/portfolio';
 import { 
   ArrowUpRight, 
   Calendar, 
-  CheckCircle2, 
-  Layers, 
-  ShieldCheck, 
-  Terminal, 
-  Cpu, 
-  ExternalLink,
-  Github
+  CheckCircle2
 } from 'lucide-react';
 
 export const Projects: React.FC = () => {
@@ -52,7 +46,7 @@ export const Projects: React.FC = () => {
               className={`px-4 py-2 rounded-xl text-xs font-mono font-medium transition-all ${
                 filter === tab.id
                   ? 'bg-cyan-500 text-slate-950 font-bold shadow-lg shadow-cyan-500/25'
-                  : 'bg-slate-900/60 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800'
+                  : 'bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 shadow-sm'
               }`}
             >
               {tab.label}
@@ -76,13 +70,13 @@ export const Projects: React.FC = () => {
                 delay={0.08 * idx}
                 onClick={() => setSelectedProject(project)}
                 className={`flex flex-col justify-between ${
-                  isFeatured ? 'lg:col-span-1 ring-1 ring-cyan-500/20' : ''
+                  isFeatured ? 'lg:col-span-1 ring-1 ring-cyan-500/30' : ''
                 }`}
               >
                 <div className="space-y-4">
                   {/* Category & Period */}
-                  <div className="flex items-center justify-between text-xs font-mono text-slate-400">
-                    <span className="text-cyan-400 uppercase tracking-wider text-[11px] font-semibold">
+                  <div className="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400">
+                    <span className="text-cyan-600 dark:text-cyan-400 uppercase tracking-wider text-[11px] font-bold">
                       {project.category}
                     </span>
                     <span className="flex items-center gap-1 text-[11px]">
@@ -93,28 +87,28 @@ export const Projects: React.FC = () => {
 
                   {/* Title & Tagline */}
                   <div>
-                    <h3 className="text-xl font-bold text-slate-100 group-hover:text-cyan-300 transition-colors flex items-center justify-between gap-2">
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors flex items-center justify-between gap-2">
                       <span>{project.title}</span>
-                      <ArrowUpRight className="w-4 h-4 text-slate-500 group-hover:text-cyan-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
+                      <ArrowUpRight className="w-4 h-4 text-slate-400 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
                     </h3>
-                    <p className="text-xs text-slate-300 mt-1 font-medium">
+                    <p className="text-xs text-slate-700 dark:text-slate-300 mt-1 font-medium">
                       {project.tagline}
                     </p>
                   </div>
 
                   {/* Summary */}
-                  <p className="text-xs text-slate-400 line-clamp-3 leading-relaxed">
+                  <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-3 leading-relaxed">
                     {project.description}
                   </p>
 
                   {/* Key Feature Highlights */}
-                  <div className="space-y-1.5 pt-2 border-t border-slate-800/80">
+                  <div className="space-y-1.5 pt-2 border-t border-slate-200 dark:border-slate-800/80">
                     <p className="text-[10px] font-mono uppercase tracking-wider text-slate-500">
                       Core Highlights:
                     </p>
                     {project.keyFeatures.slice(0, 2).map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-start gap-2 text-xs text-slate-300">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
+                      <div key={fIdx} className="flex items-start gap-2 text-xs text-slate-700 dark:text-slate-300">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400 shrink-0 mt-0.5" />
                         <span className="line-clamp-2 text-[11px]">{feat}</span>
                       </div>
                     ))}
@@ -122,24 +116,24 @@ export const Projects: React.FC = () => {
                 </div>
 
                 {/* Tech Stack Pills & Modal Prompt */}
-                <div className="pt-4 mt-4 border-t border-slate-800/80 space-y-3">
+                <div className="pt-4 mt-4 border-t border-slate-200 dark:border-slate-800/80 space-y-3">
                   <div className="flex flex-wrap gap-1.5">
                     {project.technologies.slice(0, 4).map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-0.5 rounded-md bg-slate-900 border border-slate-800 text-[10px] font-mono text-slate-300"
+                        className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-[10px] font-mono text-slate-700 dark:text-slate-300"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.technologies.length > 4 && (
-                      <span className="px-1.5 py-0.5 rounded-md bg-slate-900 text-[10px] font-mono text-cyan-400">
+                      <span className="px-1.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-900 text-[10px] font-mono text-cyan-600 dark:text-cyan-400 font-semibold">
                         +{project.technologies.length - 4}
                       </span>
                     )}
                   </div>
 
-                  <div className="flex items-center justify-between text-[11px] font-mono text-cyan-400 group-hover:text-cyan-300">
+                  <div className="flex items-center justify-between text-[11px] font-mono text-cyan-600 dark:text-cyan-400 font-semibold group-hover:text-cyan-700 dark:group-hover:text-cyan-300">
                     <span>Click for Deep Dive & Architecture</span>
                     <span className="text-xs">→</span>
                   </div>

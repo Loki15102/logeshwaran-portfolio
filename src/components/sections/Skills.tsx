@@ -51,13 +51,13 @@ export const Skills: React.FC = () => {
         {/* Filter Controls & Search */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-10">
           {/* Category Tabs */}
-          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-2xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-md">
+          <div className="flex flex-wrap items-center gap-1.5 p-1 rounded-2xl bg-white/80 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 backdrop-blur-md shadow-sm">
             <button
               onClick={() => setActiveCategory('all')}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium transition-colors ${
                 activeCategory === 'all'
                   ? 'bg-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60'
               }`}
             >
               All Skills
@@ -67,7 +67,7 @@ export const Skills: React.FC = () => {
               className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium transition-colors ${
                 activeCategory === 'frontend'
                   ? 'bg-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60'
               }`}
             >
               Frontend
@@ -77,7 +77,7 @@ export const Skills: React.FC = () => {
               className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium transition-colors ${
                 activeCategory === 'backend'
                   ? 'bg-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60'
               }`}
             >
               Backend & APIs
@@ -87,7 +87,7 @@ export const Skills: React.FC = () => {
               className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium transition-colors ${
                 activeCategory === 'security'
                   ? 'bg-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60'
               }`}
             >
               Databases & Security
@@ -97,7 +97,7 @@ export const Skills: React.FC = () => {
               className={`px-3.5 py-1.5 rounded-xl text-xs font-mono font-medium transition-colors ${
                 activeCategory === 'devops'
                   ? 'bg-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60'
               }`}
             >
               DevOps
@@ -106,13 +106,13 @@ export const Skills: React.FC = () => {
 
           {/* Quick Search */}
           <div className="relative w-full sm:w-64">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search skill (e.g. GraphQL)..."
-              className="w-full pl-9 pr-4 py-2 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-200 placeholder-slate-500 outline-none focus:border-cyan-500/50 transition-colors"
+              className="w-full pl-9 pr-4 py-2 rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-xs text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 outline-none focus:border-cyan-500 transition-colors shadow-sm"
             />
           </div>
         </div>
@@ -140,14 +140,14 @@ export const Skills: React.FC = () => {
                 <div>
                   {/* Category Header */}
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/60 text-cyan-400 group-hover:scale-105 transition-transform">
+                    <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 text-cyan-600 dark:text-cyan-400 group-hover:scale-105 transition-transform">
                       <Icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-base text-slate-100 group-hover:text-cyan-300 transition-colors">
+                      <h3 className="font-bold text-base text-slate-900 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors">
                         {category.title}
                       </h3>
-                      <p className="text-[11px] text-slate-400 line-clamp-1">
+                      <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">
                         {category.description}
                       </p>
                     </div>
@@ -160,14 +160,14 @@ export const Skills: React.FC = () => {
                         key={skill.name}
                         className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono transition-all duration-200 ${
                           skill.highlight
-                            ? 'bg-slate-800/90 text-slate-100 border border-cyan-500/40 hover:border-cyan-400 hover:bg-cyan-500/10 shadow-sm'
-                            : 'bg-slate-900/50 text-slate-300 border border-slate-800 hover:border-slate-700 hover:text-white'
+                            ? 'bg-cyan-50 dark:bg-slate-800/90 text-slate-900 dark:text-slate-100 border border-cyan-400/50 dark:border-cyan-500/40 hover:border-cyan-500 shadow-sm'
+                            : 'bg-slate-100 dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:text-slate-950 dark:hover:text-white'
                         }`}
                       >
                         {skill.highlight ? (
-                          <Sparkles className="w-3 h-3 text-cyan-400 shrink-0" />
+                          <Sparkles className="w-3 h-3 text-cyan-600 dark:text-cyan-400 shrink-0" />
                         ) : (
-                          <span className="w-1.5 h-1.5 rounded-full bg-slate-600 shrink-0" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-600 shrink-0" />
                         )}
                         <span>{skill.name}</span>
                       </span>
@@ -175,9 +175,9 @@ export const Skills: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-slate-800/60 flex items-center justify-between text-[11px] font-mono text-slate-500">
+                <div className="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800/60 flex items-center justify-between text-[11px] font-mono text-slate-500">
                   <span>{category.skills.length} Competencies</span>
-                  <span className="text-cyan-400/80 flex items-center gap-1">
+                  <span className="text-cyan-600 dark:text-cyan-400/80 flex items-center gap-1 font-semibold">
                     <CheckCircle2 className="w-3 h-3" /> Production Grade
                   </span>
                 </div>
@@ -189,14 +189,14 @@ export const Skills: React.FC = () => {
           <BentoCard glowColor="cyan" className="md:col-span-2 lg:col-span-3">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs uppercase tracking-wider mb-1">
+                <div className="flex items-center gap-2 text-cyan-600 dark:text-cyan-400 font-mono text-xs uppercase tracking-wider mb-1">
                   <Code2 className="w-4 h-4" />
                   <span>Programming Languages</span>
                 </div>
-                <h4 className="text-lg font-bold text-slate-100">
+                <h4 className="text-lg font-bold text-slate-900 dark:text-slate-100">
                   Multi-paradigm Polyglot Core
                 </h4>
-                <p className="text-xs text-slate-400 max-w-xl mt-1">
+                <p className="text-xs text-slate-600 dark:text-slate-400 max-w-xl mt-1">
                   Strong procedural, object-oriented, and functional fluency across modern web and systems runtimes.
                 </p>
               </div>
@@ -206,7 +206,7 @@ export const Skills: React.FC = () => {
                 {languages.map((lang) => (
                   <span
                     key={lang}
-                    className="px-4 py-2 rounded-xl bg-slate-900/80 border border-slate-700/80 text-xs font-mono font-bold text-slate-200 hover:text-cyan-300 hover:border-cyan-500/50 hover:bg-cyan-500/10 transition-all shadow-sm"
+                    className="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700/80 text-xs font-mono font-bold text-slate-800 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-cyan-300 hover:border-cyan-500/50 transition-all shadow-sm"
                   >
                     {lang}
                   </span>

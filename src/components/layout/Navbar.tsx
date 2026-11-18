@@ -23,7 +23,7 @@ export const Navbar: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      // Simple active section spy
+      // Active section spy
       const sections = ['home', ...navItems.map(item => item.href.substring(1))];
       const scrollPosition = window.scrollY + 200;
 
@@ -57,7 +57,7 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'py-3 bg-slate-950/80 dark:bg-[#070b14]/80 backdrop-blur-md border-b border-slate-800/80 shadow-lg shadow-black/20'
+          ? 'py-3 bg-white/85 dark:bg-[#070b14]/85 backdrop-blur-md border-b border-slate-200/90 dark:border-slate-800/80 shadow-lg shadow-slate-200/40 dark:shadow-black/20'
           : 'py-5 bg-transparent'
       }`}
     >
@@ -77,18 +77,18 @@ export const Navbar: React.FC = () => {
               </div>
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-slate-100 dark:text-white text-sm sm:text-base tracking-tight group-hover:text-cyan-400 transition-colors">
+              <span className="font-bold text-slate-900 dark:text-white text-sm sm:text-base tracking-tight group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                 {portfolioData.personal.name}
               </span>
-              <span className="text-[10px] font-mono text-cyan-400/90 flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-[10px] font-mono text-cyan-600 dark:text-cyan-400 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
                 Full-Stack Engineer
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 bg-slate-900/50 dark:bg-slate-900/40 px-3 py-1.5 rounded-full border border-slate-800/80 backdrop-blur-md">
+          <nav className="hidden lg:flex items-center gap-1 bg-slate-100/90 dark:bg-slate-900/40 px-3 py-1.5 rounded-full border border-slate-200 dark:border-slate-800/80 backdrop-blur-md">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
               return (
@@ -98,13 +98,13 @@ export const Navbar: React.FC = () => {
                   onClick={(e) => scrollToSection(e, item.href)}
                   className={`relative px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
                     isActive
-                      ? 'text-cyan-400 bg-cyan-500/10 font-semibold'
-                      : 'text-slate-300 hover:text-white hover:bg-slate-800/40'
+                      ? 'text-cyan-700 dark:text-cyan-400 bg-white dark:bg-cyan-500/10 font-bold shadow-sm'
+                      : 'text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-slate-200/60 dark:hover:bg-slate-800/40'
                   }`}
                 >
                   {item.name}
                   {isActive && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-cyan-400 rounded-full" />
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-cyan-500 dark:bg-cyan-400 rounded-full" />
                   )}
                 </a>
               );
@@ -118,9 +118,9 @@ export const Navbar: React.FC = () => {
             <a
               href="#resume"
               onClick={(e) => scrollToSection(e, '#resume')}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-200 hover:text-white border border-slate-700/60 transition-all duration-200 shadow-sm"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-xl bg-white dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 hover:text-slate-950 dark:hover:text-white border border-slate-200 dark:border-slate-700/60 transition-all duration-200 shadow-sm"
             >
-              <FileText className="w-3.5 h-3.5 text-cyan-400" />
+              <FileText className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
               <span>Resume</span>
             </a>
 
@@ -140,7 +140,7 @@ export const Navbar: React.FC = () => {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle Navigation Menu"
-              className="p-2 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-300 hover:text-white focus:outline-none"
+              className="p-2 rounded-xl bg-white dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white focus:outline-none"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -150,7 +150,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-slate-950/95 dark:bg-[#070b14]/95 border-b border-slate-800 px-6 py-6 backdrop-blur-xl shadow-2xl animate-in slide-in-from-top-4 duration-200">
+        <div className="lg:hidden bg-white/95 dark:bg-[#070b14]/95 border-b border-slate-200 dark:border-slate-800 px-6 py-6 backdrop-blur-xl shadow-2xl animate-in slide-in-from-top-4 duration-200">
           <nav className="flex flex-col space-y-2">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
@@ -161,23 +161,23 @@ export const Navbar: React.FC = () => {
                   onClick={(e) => scrollToSection(e, item.href)}
                   className={`flex items-center justify-between px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                     isActive
-                      ? 'bg-cyan-500/15 text-cyan-400 font-semibold'
-                      : 'text-slate-300 hover:bg-slate-900 hover:text-white'
+                      ? 'bg-cyan-50 dark:bg-cyan-500/15 text-cyan-700 dark:text-cyan-400 font-bold'
+                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900'
                   }`}
                 >
                   <span>{item.name}</span>
-                  {isActive && <Sparkles className="w-4 h-4 text-cyan-400" />}
+                  {isActive && <Sparkles className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />}
                 </a>
               );
             })}
 
-            <div className="pt-4 border-t border-slate-800/80 flex flex-col gap-2.5">
+            <div className="pt-4 border-t border-slate-200 dark:border-slate-800/80 flex flex-col gap-2.5">
               <a
                 href={portfolioData.personal.resumeUrl}
                 download={portfolioData.personal.resumeFileName}
-                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-900 border border-slate-700/80 text-sm font-medium text-slate-200"
+                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 text-sm font-medium text-slate-800 dark:text-slate-200"
               >
-                <FileText className="w-4 h-4 text-cyan-400" />
+                <FileText className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
                 Download Resume
               </a>
 

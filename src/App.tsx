@@ -47,7 +47,7 @@ export const AppContent: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#030712] dark:bg-[#030712] text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200 transition-colors duration-300">
+    <div className="relative min-h-screen bg-slate-50 dark:bg-[#030712] text-slate-900 dark:text-slate-100 selection:bg-cyan-500/30 selection:text-cyan-200 transition-colors duration-300">
       {/* Background ambient lighting and grid */}
       <BackgroundGlow />
 

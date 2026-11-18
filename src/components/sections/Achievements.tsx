@@ -15,7 +15,7 @@ export const Achievements: React.FC = () => {
   const { achievements } = portfolioData;
 
   if (!achievements || achievements.length === 0) {
-    return null; // Gracefully hide if no achievements exist
+    return null;
   }
 
   return (
@@ -46,29 +46,29 @@ export const Achievements: React.FC = () => {
               >
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-mono uppercase tracking-wider text-slate-400">
+                    <span className="text-xs font-mono uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">
                       {ach.category}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-slate-800/80 border border-slate-700/60 flex items-center justify-center text-cyan-400">
+                    <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/60 flex items-center justify-center text-cyan-600 dark:text-cyan-400">
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
                   <div>
-                    <span className="text-3xl sm:text-4xl font-black font-mono text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-400">
+                    <span className="text-3xl sm:text-4xl font-black font-mono text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-teal-600 to-emerald-600 dark:from-cyan-400 dark:via-teal-300 dark:to-emerald-400">
                       {ach.metric}
                     </span>
-                    <h3 className="text-lg font-bold text-slate-100 mt-1">
+                    <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mt-1">
                       {ach.title}
                     </h3>
                   </div>
 
-                  <p className="text-sm text-slate-300 leading-relaxed">
+                  <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                     {ach.description}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center gap-2 text-xs font-mono text-cyan-400">
+                <div className="mt-6 pt-4 border-t border-slate-200 dark:border-slate-800/80 flex items-center gap-2 text-xs font-mono text-cyan-600 dark:text-cyan-400 font-semibold">
                   <Sparkles className="w-3.5 h-3.5" />
                   <span>Verified Production Outcome</span>
                 </div>
